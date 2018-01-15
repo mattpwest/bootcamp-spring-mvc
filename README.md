@@ -127,8 +127,22 @@ template back in the browser when hitting `http://localhost:8080/`.
 
 The controller needs to pass the values to render out to the view. To do this
 add a Spring `ModelMap` parameter to your controller method... you can add values
-you want to display in the view to this map.
+you want to display in the view to this map. Then rewrite your `index.jsp` to use
+the model values instead of showing static placeholder values.
+
+Run the application at this point and verify that you're getting the designed
+template back in the browser with the same values as in the command line report
+`http://localhost:8080/`.
 
 Tips:
  * You'll need to import the core taglib for JSP to gain access to `c:forEach`
    for iterating over reports: `<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>`
+ * Here's an example of a JSP forEach loop:
+```
+<c:forEach items="${objects}" var="object">
+    <h2>${object.name}</h2>
+</c:forEach>
+```
+
+If you are struggling to get this right you can have a look at `tags/solution2`
+to see how we completed the task.
