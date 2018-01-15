@@ -146,3 +146,46 @@ Tips:
 
 If you are struggling to get this right you can have a look at `tags/solution2`
 to see how we completed the task.
+
+## Exercise 3 (tag: tags/exercise3)
+
+There's much richer data in the application than what is being exposed by the
+current report. Let's use this report as an overview and then build some views
+to drill into the underlying detail.
+
+Specifically clicking on a publisher's name should navigate to
+`http://localhost:8080/{publisherId}` and display a list of superheroes
+belonging to that publisher.
+
+### Part 1: PathVariables
+
+Add a new controller method to your `PublisherController` that will handle
+requests to `/{publisherId}`. Use Spring MVC's `@PathVariabe` annotation to
+extract the `publisherId` as an `Integer`, then pass that into
+`PublisherService.findOne(...)` to retrieve the publisher and finally
+call `PublisherService.getSuperheroesByPublisher(...)` to retrieve the list
+of superheroes.
+
+Designing the JSP view for this page is left as an exercise, but the list
+should show superheroes' names and gender and the title of the page should
+show the name of the publisher. It would be a bonus if there's a link back
+to the report to make navigation easier.
+
+### Part 2: RequestParam
+
+Add a new controller method to your `PublisherController` that will handle
+requests to `/{publisherId}/filter?gender=Female`. Using a `@PatVariable`
+as before to extract the `publisherId`. In addition use Spring MVC's
+`@RequestParam` annotation to extract the gender parameter as a `Gender`
+enum value.
+
+You should extend the `PublisherService` with a method that can get a
+filtered list of heroes for a publisher. Since the data set is small you
+can simply use the Java 8 streams API to filter the data by gender.
+
+You should be able to reuse the JSP template you designed for part 1 of
+this exercise, but it would be nice if you extend it to detect when a
+filter is being applied to show some hint to the user that they are
+seeing a filtered version. An additional link for showing the unfiltered
+version of the data would be nice to have.
+ 
