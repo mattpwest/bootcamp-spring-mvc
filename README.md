@@ -86,3 +86,49 @@ printing _"Hello, World!"_ in your browser.
 
 If you are struggling to get this right you can have a look at
 `tags/solution1` to see how we completed the task.
+
+## Exercise 2 (tag: tags/exercise2)
+
+### Part 1: Basic JSP Configuration
+
+Web capabilities have been added to the project, now we need to use them to
+produce a web version of the report that is printed out by the CLI. We will
+use Java Server Pages (JSP) for view rendering.
+
+To start have a look at the `mocks/index.html` - this is the design for the
+web page provided by the business analyst - you will use this as a basis for
+building your page template, by copying the contents into
+`src/main/webapps/views/index.jsp`.
+
+By default Spring Boot will look for Thymeleaf Templates in
+`src/main/resources/templates`, so since we want to use JSP you need to
+reconfigure Spring Boot's template engine, by creating
+`src/main/resources/application.properties` with the following contents:
+
+```
+spring.mvc.view.prefix: /views/
+spring.mvc.view.suffix: .jsp
+```
+
+Finally we need to make a few changes to `PublisherController.java`:
+
+* Remove the `@ResponseBody` which tells Spring to take your return value
+literally... it will now interpret your return value as a view name instead,
+combining the values we configured in `application.properties` with the
+returned value to create a view file path that it will use to render a
+response to the user.
+* Change the return value to `index`, which will result in a view name of
+`views/index.jsp`.
+
+Run the application at this point and verify that you're getting the designed
+template back in the browser when hitting `http://localhost:8080/`.
+
+### Part 2: Populating The Model
+
+The controller needs to pass the values to render out to the view. To do this
+add a Spring `ModelMap` parameter to your controller method... you can add values
+you want to display in the view to this map.
+
+Tips:
+ * You'll need to import the core taglib for JSP to gain access to `c:forEach`
+   for iterating over reports: `<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>`
