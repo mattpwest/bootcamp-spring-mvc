@@ -7,6 +7,7 @@ import za.co.entelect.bootcamp.domain.Superhero;
 import za.co.entelect.bootcamp.services.generic.GenericStubService;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class StubPublisherService
@@ -45,6 +46,16 @@ public class StubPublisherService
         return Collections.unmodifiableList(publisherHeroes.get(publisher));
     }
 
+    @Override
+    public Iterable<Superhero> getSuperheroesByPublisherAndGender(Publisher publisher, Gender gender) {
+        List<Superhero> heroes = new ArrayList<>();
+        getSuperheroesByPublisher(publisher).forEach(heroes::add);
+        return heroes.stream()
+                .filter(hero -> hero.getGender().equals(gender))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public SuperheroSummaryReport generateHeroSummaryReport(Publisher publisher) {
         SuperheroSummaryReport report = new SuperheroSummaryReport();
         Iterable<Superhero> heroes = this.getSuperheroesByPublisher(publisher);

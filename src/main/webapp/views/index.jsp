@@ -11,18 +11,18 @@
 <h1>Publisher Report</h1>
 
 <c:forEach items="${reports}" var="report">
-    <h2>${report.publisher.longName}</h2>
+    <h2><a href="<c:url value="/${report.publisher.id}"/>">${report.publisher.longName}</a></h2>
     <p>
         <strong>Total Heroes: ${report.count}</strong>
     </p>
     <p>
-        Female: ${report.female}
+        <a href="<c:url value="/${report.publisher.id}/filter?gender=Female"/>">Female</a>: ${report.female}
     </p>
     <p>
-        Male: ${report.male}
+        <a href="<c:url value="/${report.publisher.id}/filter?gender=Male"/>">Male</a>: ${report.male}
     </p>
     <p>
-        Other: ${report.other}
+        <a href="<c:url value="/${report.publisher.id}/filter?gender=Other"/>">Other</a>: ${report.other}
     </p>
 </c:forEach>
 

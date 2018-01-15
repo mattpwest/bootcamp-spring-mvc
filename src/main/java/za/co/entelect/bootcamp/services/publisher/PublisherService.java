@@ -1,5 +1,6 @@
 package za.co.entelect.bootcamp.services.publisher;
 
+import za.co.entelect.bootcamp.domain.Gender;
 import za.co.entelect.bootcamp.domain.Publisher;
 import za.co.entelect.bootcamp.domain.Superhero;
 import za.co.entelect.bootcamp.services.generic.ReadService;
@@ -14,6 +15,8 @@ public interface PublisherService extends ReadService<Publisher, Integer>, Write
     Iterable<Superhero> getSuperheroesByPublisher(Publisher publisher);
 
     SuperheroSummaryReport generateHeroSummaryReport(Publisher publisher);
+
+    Iterable<Superhero> getSuperheroesByPublisherAndGender(Publisher publisher, Gender gender);
 
     class SuperheroSummaryReport {
         private Publisher publisher;
