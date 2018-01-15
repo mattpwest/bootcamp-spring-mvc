@@ -1,6 +1,7 @@
 package za.co.entelect.bootcamp.services.publisher;
 
 import org.springframework.stereotype.Service;
+import za.co.entelect.bootcamp.domain.Gender;
 import za.co.entelect.bootcamp.domain.Publisher;
 import za.co.entelect.bootcamp.domain.Superhero;
 import za.co.entelect.bootcamp.services.generic.GenericStubService;
@@ -44,4 +45,32 @@ public class StubPublisherService
         return Collections.unmodifiableList(publisherHeroes.get(publisher));
     }
 
+    public SuperheroSummaryReport generateHeroSummaryReport(Publisher publisher) {
+        SuperheroSummaryReport report = new SuperheroSummaryReport();
+        Iterable<Superhero> heroes = this.getSuperheroesByPublisher(publisher);
+
+        int count = 0;
+        int male = 0;
+        int female = 0;
+        int other = 0;
+        for (Superhero hero : heroes) {
+            count++;
+
+            if (Gender.Male.equals(hero.getGender())) {
+                male++;
+            } else if (Gender.Female.equals(hero.getGender())) {
+                female++;
+            } else if (Gender.Other.equals(hero.getGender())) {
+                other++;
+            }
+        }
+
+        report.setPublisher(publisher);
+        report.setCount(count);
+        report.setFemale(female);
+        report.setMale(male);
+        report.setOther(other);
+
+        return report;
+    }
 }

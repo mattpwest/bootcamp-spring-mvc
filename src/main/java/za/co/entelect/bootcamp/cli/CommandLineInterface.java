@@ -19,35 +19,19 @@ public class CommandLineInterface {
         System.out.println(" = Publisher Report = ");
         System.out.println();
         for (Publisher publisher : publisherService.findAll()) {
-            Iterable<Superhero> heroes = publisherService.getSuperheroesByPublisher(publisher);
-
-            printPublisherReport(publisher, heroes);
+            printPublisherReport(publisher);
         }
     }
 
-    private void printPublisherReport(Publisher publisher, Iterable<Superhero> heroes) {
-        int count = 0;
-        int female = 0;
-        int male = 0;
-        int other = 0;
-        for (Superhero hero : heroes) {
-            count++;
-
-            if (Gender.Male.equals(hero.getGender())) {
-                male++;
-            } else if (Gender.Female.equals(hero.getGender())) {
-                female++;
-            } else if (Gender.Other.equals(hero.getGender())) {
-                other++;
-            }
-        }
+    private void printPublisherReport(Publisher publisher) {
+        PublisherService.SuperheroSummaryReport report = publisherService.generateHeroSummaryReport(publisher);
 
         System.out.println(" === " + publisher.getLongName() + " === ");
         System.out.println();
-        System.out.println("Characters: " + count);
-        System.out.println("\tFemale: " + female);
-        System.out.println("\tMale: " + male);
-        System.out.println("\tOther: " + other);
+        System.out.println("Characters: " + report.getCount());
+        System.out.println("\tFemale: " + report.getFemale());
+        System.out.println("\tMale: " + report.getMale());
+        System.out.println("\tOther: " + report.getOther());
         System.out.println();
     }
 

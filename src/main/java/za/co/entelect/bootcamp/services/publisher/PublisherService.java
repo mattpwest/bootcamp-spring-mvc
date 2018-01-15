@@ -12,5 +12,56 @@ public interface PublisherService extends ReadService<Publisher, Integer>, Write
     Publisher getPublisherBySuperhero(Superhero superhero);
 
     Iterable<Superhero> getSuperheroesByPublisher(Publisher publisher);
-    //Pageable<Superhero> getSuperheroesByPublisher(Publisher publisher);
+
+    SuperheroSummaryReport generateHeroSummaryReport(Publisher publisher);
+
+    class SuperheroSummaryReport {
+        private Publisher publisher;
+        private int count = 0;
+        private int female = 0;
+        private int male = 0;
+        private int other = 0;
+
+        public SuperheroSummaryReport() {}
+
+        public Publisher getPublisher() {
+            return publisher;
+        }
+
+        public void setPublisher(Publisher publisher) {
+            this.publisher = publisher;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+        public void setCount(int count) {
+            this.count = count;
+        }
+
+        public int getFemale() {
+            return female;
+        }
+
+        public void setFemale(int female) {
+            this.female = female;
+        }
+
+        public int getMale() {
+            return male;
+        }
+
+        public void setMale(int male) {
+            this.male = male;
+        }
+
+        public int getOther() {
+            return other;
+        }
+
+        public void setOther(int other) {
+            this.other = other;
+        }
+    }
 }
