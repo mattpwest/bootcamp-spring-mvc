@@ -51,35 +51,34 @@
 <div class="container">
     <div class="row">
         <h1>Publisher: ${publisher.longName}</h1>
+        <h2>Add Hero</h2>
 
-        <c:if test="${filter != null}">
-            <p>Filtered for: ${filter} <a href="<c:url value="/report/${publisher.id}"/>" class="btn btn-default btn-xs">Clear Filter</a></p>
-        </c:if>
+        <form:form method="post" action="/superheroes/add/${publisher.id}" modelAttribute="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <form:input path="name" cssClass="form-control" id="name"/>
+            </div>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${heroes}" var="hero">
-                <tr>
-                    <td>${hero.name}</td>
-                    <td>${hero.gender}</td>
-                    <td>
-                        <form:form method="delete" action="/superheroes/${hero.id}">
-                            <button value="submit" class="btn btn-xs btn-danger">Delete</button>
-                        </form:form>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+            <div class="form-group">
+                <label for="gender">Gender</label><br/>
+                <c:forEach var="gender" items="${genders}">
+                    <label>
+                        <form:radiobutton id="gender" path="gender" value="${gender}" />
+                        ${gender.name()}
+                    </label></br>
+                </c:forEach>
+            </div>
 
-        <a href="<c:url value="/superheroes/add/${publisher.id}"/>" class="btn btn-primary">Add</a>
+            <c:if test="${hasErrors}">
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert">
+                    <form:errors path="*"/>
+                </div>
+            </div>
+            </c:if>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form:form>
     </div>
 </div>
 
