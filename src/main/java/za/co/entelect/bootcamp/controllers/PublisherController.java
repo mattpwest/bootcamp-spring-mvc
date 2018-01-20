@@ -25,6 +25,11 @@ public class PublisherController {
     }
 
     @GetMapping("")
+    public String homePage(ModelMap modelMap) {
+        return "index";
+    }
+
+    @GetMapping("/report")
     public String report(ModelMap modelMap) {
         List<PublisherService.SuperheroSummaryReport> reports = new ArrayList<>();
         for (Publisher publisher : publisherService.findAll()) {
@@ -32,10 +37,10 @@ public class PublisherController {
         }
 
         modelMap.put("reports", reports);
-        return "index";
+        return "report";
     }
 
-    @GetMapping("/{publisherId}")
+    @GetMapping("/report/{publisherId}")
     public String listSuperheroes(
             @PathVariable("publisherId") Integer publisherId,
             ModelMap modelMap
@@ -50,7 +55,7 @@ public class PublisherController {
 
     }
 
-    @GetMapping("/{publisherId}/filter")
+    @GetMapping("/report/{publisherId}/filter")
     public String listSuperheroesFiltered(
             @PathVariable("publisherId") Integer publisherId,
             @RequestParam("gender") Gender gender,

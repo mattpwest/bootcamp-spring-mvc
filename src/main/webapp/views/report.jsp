@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="<c:url value="/"/>">Home</a></li>
-                <li class="active"><a href="<c:url value="/report"/>">Publishers <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#">Publishers <span class="sr-only">(current)</span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -49,17 +49,51 @@
 
 <div class="container">
     <div class="row">
-    <h1>Publisher: ${publisher.longName}</h1>
-    <c:if test="${filter != null}">
-        <p>Filtered for: ${filter} <a href="<c:url value="/report/${publisher.id}"/>" class="btn btn-default btn-xs">Clear Filter</a></p>
-    </c:if>
-
-    <ul>
-    <c:forEach items="${heroes}" var="hero">
-        <li>${hero.name} (${hero.gender})</li>
-    </c:forEach>
-    </ul>
+        <h1>Publishers Overview</h1>
     </div>
+
+    <c:forEach items="${reports}" var="report">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>${report.publisher.longName}</h2>
+        </div>
+
+        <div class="col-md-2">
+            <h2>${report.count} Heroes</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>
+                <a href="<c:url value="/report/${report.publisher.id}"/>" class="btn btn-primary btn-filter">View All</a>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+            <p>${report.female} Females</p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="<c:url value="/report/${report.publisher.id}/filter?gender=Female"/>" class="btn btn-xs btn-default btn-filter">View Females</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+            <p>${report.male} Males</p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="<c:url value="/report/${report.publisher.id}/filter?gender=Male"/>" class="btn btn-xs btn-default btn-filter">View Males</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+            <p>${report.other} Others</p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="<c:url value="/report/${report.publisher.id}/filter?gender=Other"/>" class="btn btn-xs btn-default btn-filter">View Others</a></p>
+        </div>
+    </div>
+    </c:forEach>
 </div>
 
 </body>
