@@ -243,3 +243,37 @@ Tips:
  put the new functionality in a separate controller...
  * Your form should validate the inputs and display errors if any required
  information is not filled in.
+
+## Exercise 6 (tag: tags/exercise6)
+
+To ensure that your code does what you intend for it to do, you should write
+automated tests. Normally this would be quite difficult to do for something
+as complex as a web application, but Spring provides some options...
+
+### Part 1: Unit testing controllers
+
+The first and easiest option is to write unit tests for a controller. Simply
+new up a controller instance with some mocked / stubbed out dependencies and
+then ensure that the correct view name is returned. This type of test verifies
+that the logic flow inside your controller is correct, but will not detect if
+there are problems with the Spring MVC annotations configuring your URLs and
+parameters.
+
+Exercise:
+ * Write a unit test verifying `SuperheroController.deleteHero`.
+ * Write a unit test verifying that `SuperheroController.deleteHero` throws
+ a NotFoundException if the superheroId does not exist.
+
+### Part 2: MVC integration testing
+
+The second option is to write a Spring MVC integration test, which starts
+up a Spring context with a mocked out MVC server layer, that allow you to
+simulate hitting URLs and verifying that Spring is able to resolve
+controller methods for your URLs and that all of your Spring annotations
+in your controllers are correct.
+
+Exercise:
+ * Write a test to verify that your application correctly handles GET
+ requests to `/report`.
+ * Write a test to verify that hitting `/reports` will instead return
+ a _404 Not Found_ result.
