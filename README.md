@@ -189,3 +189,36 @@ filter is being applied to show some hint to the user that they are
 seeing a filtered version. An additional link for showing the unfiltered
 version of the data would be nice to have.
  
+
+## Exercise 4 (tag: tags/exercise4)
+
+Our site, while useful, isn't very pretty... make it a look a bit better
+by adding [Bootstrap](https://getbootstrap.com/docs/3.3/getting-started/)
+stylesheets into your `webapp` folder.
+
+Then have a look in `mocks/v2` where the designer has provided a new site
+design based on Bootstrap. Convert your site to the new design by:
+ * Renaming `index.jsp` to `report.jsp` and incorporating the new design.
+ * Adding a new `index.jsp` with the static content for the new home page.
+ * The designer forgot about `heroes.jsp`, so you should convert that look
+   similar to `report.jsp` yourself.
+ 
+***Note:**  Instead of relying on the CDN version of the Bootstrap CSS and
+JS files, you should add them to your `webapp` folder, so everything is
+served from your application server.*
+
+Tips:
+ * You will need a seperate controller method for the home page now, so you
+   will need to start thinking about the URL structure for your pages and how
+   that corresponds to your site navigation, for example:
+     * / : Home Page
+     * /report : Summary Report for all publishers
+     * /report/{id} : Report for one publisher
+     * /report/{id}/filter?{filters} : Filtered report for one publisher
+ * Be sure to use absolute URIs for your CSS and image references:
+   `images/banner.jpg` will work while your URL is `/`, but break once
+   you navigate to `/report`, so use `/images/banner.jpg` instead.
+ * You'll notice that you soon have a lot of repeating HTML in your JSP
+   pages... to avoid this you can look at including fragments of JSP pages
+   in other pages as an exercise in your own time (see 
+   [this link](https://docs.oracle.com/javaee/5/tutorial/doc/bnajb.html)).
