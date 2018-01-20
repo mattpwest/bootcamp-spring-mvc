@@ -9,6 +9,7 @@ import za.co.entelect.bootcamp.services.generic.WriteService;
 public interface PublisherService extends ReadService<Publisher, Integer>, WriteService<Publisher, Integer> {
 
     void registerSuperhero(Publisher publisher, Superhero superhero);
+    void unregisterSuperhero(Superhero hero);
 
     Publisher getPublisherBySuperhero(Superhero superhero);
 

@@ -222,3 +222,24 @@ Tips:
    pages... to avoid this you can look at including fragments of JSP pages
    in other pages as an exercise in your own time (see 
    [this link](https://docs.oracle.com/javaee/5/tutorial/doc/bnajb.html)).
+   
+## Exercise 5 (tag: tags/exercise5)
+
+The site has been in production for a while now and business is happy - it
+has worked quite well to drive traffic to our and our affiliated comic shop
+sites. One problem that has been identified though, is that whenever they
+want to add a new superhero, they have to get you to make a change to the
+code, so the lead time to add one is quite long...
+
+To solve this problem they have asked you to make a couple of enhancements
+to the site:
+ * Add a form that can be used to add a new superhero to a publisher.
+ * Add a button to delete a superhero from a publisher.
+
+Tips:
+ * You'll need to use the JSP form taglib:
+ `<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>`
+ * The `PublisherController` is getting a bit big, so you should probably
+ put the new functionality in a separate controller...
+ * Your form should validate the inputs and display errors if any required
+ information is not filled in.

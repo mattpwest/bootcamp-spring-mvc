@@ -35,6 +35,14 @@ public class StubPublisherService
     }
 
     @Override
+    public void unregisterSuperhero(Superhero hero) {
+        Publisher publisher = heroPublisher.get(hero);
+        if (publisher != null) {
+            publisherHeroes.get(publisher).remove(hero);
+        }
+    }
+
+    @Override
     public Publisher getPublisherBySuperhero(Superhero superhero) {
         return heroPublisher.get(superhero);
     }
