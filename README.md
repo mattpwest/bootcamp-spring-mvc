@@ -15,7 +15,7 @@ to a web application and then begin adding new functionality.
 
 Begin by checking out the tag `exercise1` with `git checkout tags/exercise1`.
 
-## Exercise 1 (tag: tags/exercise1)
+## Exercise 1
 
 The Spring Boot application does not have web functionality enabled, so our
 first steps are to add web capabilities and verify that they are working.
@@ -84,10 +84,11 @@ public class PublisherController {
 Run the application and visit `http://localhost:8080` and verify that it is
 printing _"Hello, World!"_ in your browser.
 
-If you are struggling to get this right you can have a look at
-`tags/solution1` to see how we completed the task.
+Solution branch: `solution1`.
 
-## Exercise 2 (tag: tags/exercise2)
+Next exercise branch: `exercise2`.
+
+## Exercise 2
 
 ### Part 1: Basic JSP Configuration
 
@@ -147,7 +148,11 @@ Tips:
 If you are struggling to get this right you can have a look at `tags/solution2`
 to see how we completed the task.
 
-## Exercise 3 (tag: tags/exercise3)
+Solution branch: `solution2`.
+
+Next exercise branch: `exercise3`.
+
+## Exercise 3
 
 There's much richer data in the application than what is being exposed by the
 current report. Let's use this report as an overview and then build some views
@@ -189,3 +194,6 @@ filter is being applied to show some hint to the user that they are
 seeing a filtered version. An additional link for showing the unfiltered
 version of the data would be nice to have.
  
+Solution branch: `solution3`.
+ 
+Next exercise branch: `exercise4`.
