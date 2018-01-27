@@ -15,7 +15,7 @@ to a web application and then begin adding new functionality.
 
 Begin by checking out the tag `exercise1` with `git checkout tags/exercise1`.
 
-## Exercise 1 (tag: tags/exercise1)
+## Exercise 1 (branch: `exercise1`)
 
 The Spring Boot application does not have web functionality enabled, so our
 first steps are to add web capabilities and verify that they are working.
@@ -84,5 +84,6 @@ public class PublisherController {
 Run the application and visit `http://localhost:8080` and verify that it is
 printing _"Hello, World!"_ in your browser.
 
-If you are struggling to get this right you can have a look at
-`tags/solution1` to see how we completed the task.
+Solution branch: `solution1`.
+
+Next exercise branch: `exercise2`. 
