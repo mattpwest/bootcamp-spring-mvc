@@ -13,9 +13,9 @@ numerical report, which you can see by running the CLI application.
 Over the course of these exercises you will convert the existing functionality
 to a web application and then begin adding new functionality.
 
-Begin by checking out the tag `exercise1` with `git checkout tags/exercise1`.
+Begin by checking out the branch `exercise1` with `git checkout exercise1`.
 
-## Exercise 1 (branch: `exercise1`)
+## Exercise 1
 
 The Spring Boot application does not have web functionality enabled, so our
 first steps are to add web capabilities and verify that they are working.
