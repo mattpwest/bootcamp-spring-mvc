@@ -86,7 +86,7 @@ printing _"Hello, World!"_ in your browser.
 
 Solution branch: `solution1`.
 
-Next exercise branch: `exercise2`. 
+Next exercise branch: `exercise2`.
 
 ## Exercise 2
 
@@ -147,3 +147,7 @@ Tips:
 
 If you are struggling to get this right you can have a look at `tags/solution2`
 to see how we completed the task.
+
+Solution branch: `solution2`.
+
+Next exercise branch: `exercise3`.
