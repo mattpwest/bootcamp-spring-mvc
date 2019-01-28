@@ -1,7 +1,7 @@
 # Spring MVC Exercises
 
 These are the practical exercises for the Spring MVC module of the Entelect Graduate
-Bootcamp 2018. This will take you all the way from a simple command line application
+Bootcamp. This will take you all the way from a simple command line application
 through a basic MVC web application all the way to a simple REST API for driving
 your web pages.
 
@@ -99,7 +99,7 @@ use Java Server Pages (JSP) for view rendering.
 To start have a look at the `mocks/index.html` - this is the design for the
 web page provided by the business analyst - you will use this as a basis for
 building your page template, by copying the contents into
-`src/main/webapps/views/index.jsp`.
+`src/main/webapp/views/index.jsp`.
 
 By default Spring Boot will look for Thymeleaf Templates in
 `src/main/resources/templates`, so since we want to use JSP you need to
