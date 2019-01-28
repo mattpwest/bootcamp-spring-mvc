@@ -1,7 +1,7 @@
 # Spring MVC Exercises
 
 These are the practical exercises for the Spring MVC module of the Entelect Graduate
-Bootcamp 2018. This will take you all the way from a simple command line application
+Bootcamp. This will take you all the way from a simple command line application
 through a basic MVC web application all the way to a simple REST API for driving
 your web pages.
 
